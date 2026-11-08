@@ -6,7 +6,7 @@ target = input("enter the ip to scan : ")
 
 try:
     print(f"Scanning all ports (1-65535) on {target}..:")
-    nm.scan(target, arguments="-p 1-65535")
+    nm.scan(target, arguments="-p 1-65535 -sV --host-timeout 30s")
 
     for host in nm.all_hosts():
         print(f"\nHost: {host}")
