@@ -1,12 +1,13 @@
 import nmap
 import sys
 
+
 nm = nmap.PortScanner()
 target = input("enter the ip to scan : ")
 
 try:
     print(f"Scanning all ports (1-65535) on {target}..:")
-    nm.scan(target, arguments="-p 1-65535 -sV --host-timeout 30s")
+    nm.scan(target, arguments="-p 1-65535 -sV -T4")
 
     for host in nm.all_hosts():
         print(f"\nHost: {host}")
